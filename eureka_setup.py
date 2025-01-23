@@ -12,10 +12,10 @@ def init_eureka():
  
         # Inicialize o cliente Eureka com as configurações especificadas
         eureka_client.init(
-            eureka_server="http://eureka.octopustax.com.br/eureka",
-            app_name="resumo-yt-ia-service",  # Substitua pelo nome do seu serviço
-            instance_id=f"resumo-yt-ia-service:{random_port}",  # Substitua pelo ID da instância
-            instance_host="eureka.octopustax.com.br",
+            eureka_server="http://eureka2.octopustax.com.br/eureka",
+            app_name="apresentacao-ia-service",  # Substitua pelo nome do seu serviço
+            instance_id=f"apresentacao-ia-service:{random_port}",  # Substitua pelo ID da instância
+            instance_host="127.0.0.1",
             instance_port=random_port,  # Usa a porta aleatória gerada
             renewal_interval_in_secs=10,
             duration_in_secs=30,
