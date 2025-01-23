@@ -1,6 +1,7 @@
-import random
 import py_eureka_client.eureka_client as eureka_client
 import logging
+import random
+
  
 def init_eureka():
     logging.info("Inicializando o cliente Eureka...")
