@@ -1,10 +1,12 @@
 from pptx.enum.text import PP_ALIGN
 from pptx import Presentation
-from pptx.util import Inches  
+from pptx.util import Inches
+from datetime import datetime
 
 
-def criar_apresentacao(topicos_separados):
+def criar_apresentacao(topicos_separados,caminho_arquivo, tema):
 # Carrega o arquivo de template
+    data_atual = datetime.now().strftime('%d/%m/%Y')
     arquivo = 'apresentacao.pptx'
     apresentacao = Presentation('modelo_octopus.pptx')
 
@@ -51,8 +53,11 @@ def criar_apresentacao(topicos_separados):
             par.alignment = PP_ALIGN.LEFT 
             for run in par.runs:
                 run.font.size = Inches(0.4) 
-                
+    salva_arquivo = caminho_arquivo+'/apresentacao_'+tema.replace(' ','-')+'.pptx'
+    nome_arquivo = 'apresentacao_'+tema.replace(' ', '-')+'.pptx'
+    print(f'Nome arquivo: {nome_arquivo}')
+    print(f'Caminho de salvamento do arquivo: {salva_arquivo}')
     # Salva a apresentação em um novo arquivo
-    apresentacao.save('apresentacao.pptx')
+    apresentacao.save(salva_arquivo)
     print('Apresentação criada com sucesso!')
-    return arquivo
+    return nome_arquivo

@@ -3,7 +3,7 @@ from helpers import *
 
 modelo = carrega('modelo_apresentacao.txt')
 
-#client = OpenAI(api_key='Chave API AQUI')
+client = OpenAI(api_key='sua chave api')
 
 def gerar_conteudo_gpt(prompt):
     try:
