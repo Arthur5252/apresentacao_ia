@@ -3,7 +3,7 @@ from helpers import *
 
 modelo = carrega('modelo_apresentacao.txt')
 
-client = OpenAI(api_key='Chave API AQUI')
+#client = OpenAI(api_key='Chave API AQUI')
 
 def gerar_conteudo_gpt(prompt):
     try:
@@ -19,7 +19,6 @@ def gerar_conteudo_gpt(prompt):
         ]
     )
         # Retornar o conteúdo gerado
-        #print(completion.choices[0].message.content)
         return completion.choices[0].message.content # O retorno desta função é String
     except Exception as e:
         print(f"Erro ao chamar a API: {e}")
