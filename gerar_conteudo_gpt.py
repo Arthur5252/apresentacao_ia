@@ -19,7 +19,7 @@ def gerar_conteudo_gpt(prompt):
         ]
     )
         # Retornar o conteúdo gerado
-        return completion.choices[0].message.content # O retorno desta função é String
+        return completion.choices[0].message.content
     except Exception as e:
         print(f"Erro ao chamar a API: {e}")
         return None  # Retornando None em caso de erro

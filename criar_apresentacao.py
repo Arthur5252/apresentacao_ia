@@ -48,9 +48,9 @@ def criar_apresentacao(topicos_separados):
 
         # Ajusta o alinhamento e formatação do caixa de texto
         for par in caixa_texto.text_frame.paragraphs:
-            par.alignment = PP_ALIGN.LEFT  # Alinha à esquerda
+            par.alignment = PP_ALIGN.LEFT 
             for run in par.runs:
-                run.font.size = Inches(0.4)  # Define o tamanho da fonte
+                run.font.size = Inches(0.4) 
                 
     # Salva a apresentação em um novo arquivo
     apresentacao.save('apresentacao.pptx')
