@@ -6,8 +6,6 @@ from datetime import datetime
 
 def criar_apresentacao(topicos_separados,caminho_arquivo, tema):
 # Carrega o arquivo de template
-    data_atual = datetime.now().strftime('%d/%m/%Y')
-    arquivo = 'apresentacao.pptx'
     apresentacao = Presentation('modelo_octopus.pptx')
 
     for titulo, subticos in topicos_separados.items():

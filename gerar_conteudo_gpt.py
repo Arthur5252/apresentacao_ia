@@ -18,7 +18,7 @@ def gerar_conteudo_gpt(prompt):
             }
         ]
     )
-        # Retornar o conteúdo gerado
+        
         return completion.choices[0].message.content
     except Exception as e:
         print(f"Erro ao chamar a API: {e}")

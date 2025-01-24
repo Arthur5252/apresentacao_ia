@@ -1,9 +1,9 @@
-import logging
-from flask import Flask, request, send_file, render_template, jsonify
+from flask import Flask, request, jsonify
 from gerar_conteudo_gpt import *
 from criar_apresentacao import *
 from separa_topico import *
 from helpers import *
+import logging
 import os
 
 # Configurar o logging
@@ -11,15 +11,10 @@ logging.basicConfig(
     filename='app.log',
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filemode='w'  # Sobrescreve o arquivo a cada execução
+    filemode='w'
 )
 
 app = Flask(__name__)
-
-@app.route('/')
-def index():
-    app.logger.info("Página inicial acessada.")
-    return render_template('index.html') 
 
 @app.route('/frutas', methods=['GET'])
 def get_frutas():
@@ -29,6 +24,7 @@ def get_frutas():
 
 @app.route('/apps/apresentacao/<int:cod_cliente>', methods=['POST'])
 def criar(cod_cliente):
+    #caminho_base = 'C:/inetpub/wwwroot/gpca/octopus/arquivos'
     caminho_base = 'C:/uploads'
     try:
         json_data = request.get_json()
@@ -62,5 +58,5 @@ def criar(cod_cliente):
     except Exception as e:
         app.logger.error(f"Erro ao criar apresentação: {str(e)}")
         return jsonify({"erro": f"Erro ao criar apresentação: {str(e)}"}), 500
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
